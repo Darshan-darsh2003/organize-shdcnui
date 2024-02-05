@@ -15,7 +15,15 @@ export function MainNav({ items }: MainNavProps) {
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center ">
         <Icons.logo className="h-6 w-6" />
-        <span className="inline-block text-xl font-extrabold">{siteConfig.name}</span>
+        <span
+          style={{
+            position: "relative",
+            left: -50,
+          }}
+          className="inline-block text-xl font-extrabold"
+        >
+          {siteConfig.name}
+        </span>
       </Link>
       {items?.length ? (
         <nav className="flex gap-6">

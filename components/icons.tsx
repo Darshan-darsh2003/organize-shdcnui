@@ -1,4 +1,5 @@
 "use client"
+
 import {
   LucideProps,
   Moon,
@@ -15,18 +16,26 @@ export const Icons = {
   moon: Moon,
   twitter: Twitter,
   logo: (props: LucideProps) => {
-  const {  theme } = useTheme()
+    const { theme } = useTheme()
+    const localStorageTheme = localStorage.getItem("theme") as string
 
-   return (
-    <div style={{ filter:theme==='dark'? 'brightness(0) invert(1)':'', marginTop: 5 }}>
-    <img
-      src="images/appIcon.svg"
-      height={45}
-      width={45}
-      alt="App Icon"
-    />
-  </div>
-   )
+    return (
+      <div
+        style={{
+          filter: theme
+            ? theme === "dark"
+              ? "brightness(0) invert(1)"
+              : ""
+            : localStorageTheme === "dark"
+            ? "brightness(0) invert(1)"
+            : "",
+          marginTop: 25,
+          position: "relative",
+        }}
+      >
+        <img src="images/logo.svg" height={140} width={140} alt="App Icon" />
+      </div>
+    )
   },
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
